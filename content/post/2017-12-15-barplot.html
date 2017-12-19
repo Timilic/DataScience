@@ -1,0 +1,42 @@
+---
+title: Barplot
+author: Aleksa Timilic
+date: '2017-12-15'
+slug: barplot
+categories:
+  - Rstudio
+tags:
+  - Markdown
+  - R
+  - regression
+---
+
+
+
+<div id="bringing-in-the-libraries" class="section level3">
+<h3>Bringing in the Libraries</h3>
+<pre class="r"><code>library(sqldf)
+library(Lahman)
+library(ggplot2)
+library(devtools)</code></pre>
+</div>
+<div id="extracting-the-data" class="section level3">
+<h3>Extracting the data</h3>
+<pre class="r"><code>query&lt;-&quot;SELECT name,HR
+FROM Teams
+WHERE yearID=1980
+ORDER BY HR&quot;
+
+result&lt;-sqldf(query)</code></pre>
+</div>
+<div id="visualizing-the-data" class="section level3">
+<h3>Visualizing the data</h3>
+<pre class="r"><code>ggplot()+
+  geom_bar(data=result,aes(x=name,y=HR),stat=&#39;identity&#39;,color=&#39;blue&#39;,fill=&#39;white&#39;)+
+  coord_flip()+
+  ylab(&#39;Homeruns&#39;)+
+  xlab(&#39;Team&#39;)+
+  ggtitle(&#39;1980 Team Homerun Distribution&#39;)</code></pre>
+<p><img src="/post/2017-12-15-barplot_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<pre class="r"><code>result$name&lt;-factor(result$name,levels=result$name)</code></pre>
+</div>

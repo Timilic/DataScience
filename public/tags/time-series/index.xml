@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Time Series on Timi&#39;s RStudio Tutorials</title>
+    <link>/tags/time-series/</link>
+    <description>Recent content in Time Series on Timi&#39;s RStudio Tutorials</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Powered by [Hugo](http://gohugo.io).</copyright>
+    <lastBuildDate>Wed, 18 Oct 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/time-series/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Time Series</title>
+      <link>/post/time-series/</link>
+      <pubDate>Wed, 18 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/time-series/</guid>
+      <description>Firstly, we bring in the libraries and turn off the warning messages
+library(Lahman)library(sqldf)library(ggplot2)Now, we extract the required data, in this case, that is
+query&amp;lt;-“SELECT yearID,HR FROM Batting WHERE playerID=‘ruthba01’”
+result&amp;lt;-sqldf(query)
+Visualizing the Dataggplot()+ geom_line(data=result,aes(x=yearID,y=HR))+ geom_point(data=result,aes(x=yearID,y=HR))+ ggtitle(“Ruth’s Homerun Totals Through Years”)+ xlab(“Year”)+ ylab(“Homeruns”)
+</description>
+    </item>
+    
+    <item>
+      <title>Time Series</title>
+      <link>/post/time-series/</link>
+      <pubDate>Wed, 18 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/time-series/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

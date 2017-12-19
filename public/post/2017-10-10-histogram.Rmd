@@ -1,0 +1,33 @@
+---
+title: Histogram
+author: Aleksa Timilic
+date: '2017-10-10'
+slug: histogram
+categories:
+  - Histogram
+tags:
+  - Histogram
+  - Plot
+---
+
+```{r}
+library(Lahman)
+library(sqldf)
+library(ggplot2)
+```
+
+### Extracting the Data
+```{r}
+query<-"SELECT weight
+FROM Master"
+
+result<-sqldf(query)
+```
+
+### Viualizing the Data
+```{r}
+ggplot()+
+  geom_histogram(data=result,aes(x=weight),color="blue",fill="white",bins=50)+
+  ggtitle("Body-Weight Distribution for Baseball Players")
+```
+

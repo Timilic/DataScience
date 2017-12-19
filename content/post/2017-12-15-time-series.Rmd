@@ -1,0 +1,37 @@
+---
+title: Time Series
+author: Aleksa Timilic
+date: '2017-12-15'
+slug: timeseries
+categories:
+  - Rstudio
+---
+
+
+### Bringing in the Libraries
+```{r message=FALSE, warning=FALSE}
+library(sqldf)
+library(Lahman)
+library(ggplot2)
+library(devtools)
+```
+
+### Extracting the data
+```{r}
+query<-"SELECT yearID,HR
+FROM Batting
+WHERE playerID='ruthba01'"
+
+result<-sqldf(query)
+```
+
+
+###Visualizing the data
+```{r}
+ggplot()+
+  geom_line(data=result,aes(x=yearID,y=HR))+
+  geom_point(data=result,aes(x=yearID,y=HR))+
+  ggtitle("Ruth's Homerun Totals Through Years")+
+  xlab("Year")+
+  ylab("Homeruns")
+```

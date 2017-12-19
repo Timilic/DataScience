@@ -1,0 +1,39 @@
+---
+title: Time Series
+author: Aleksa Timilic
+date: '2017-10-18'
+slug: time-series
+categories:
+  - Rstudio
+tags:
+  - Markdown
+  - Time Series
+  - R
+---
+
+Firstly, we bring in the libraries and turn off the warning messages
+```{r warning=FALSE, message=FALSE}
+library(Lahman)
+library(sqldf)
+library(ggplot2)
+```
+
+Now, we extract the required data, in this case, that is
+```{r}
+
+```
+
+query<-"SELECT yearID,HR
+FROM Batting
+WHERE playerID='ruthba01'"
+
+result<-sqldf(query)
+
+### Visualizing the Data
+
+ggplot()+
+  geom_line(data=result,aes(x=yearID,y=HR))+
+  geom_point(data=result,aes(x=yearID,y=HR))+
+  ggtitle("Ruth's Homerun Totals Through Years")+
+  xlab("Year")+
+  ylab("Homeruns")

@@ -1,0 +1,37 @@
+---
+title: Scatterplot
+author: Aleksa Timilic
+date: '2017-12-15'
+slug: scatterplot
+categories:
+  - Rstudio
+---
+
+### Bringing in the Libraries
+```{r message=FALSE, warning=FALSE}
+library(sqldf)
+library(Lahman)
+library(ggplot2)
+library(devtools)
+```
+
+### Extracting the data
+```{r}
+query<-"SELECT playerID,sum(HR) AS Career_HR,sum(SO) AS Career_SO
+FROM Batting
+GROUP BY playerID
+HAVING sum(HR)>=400"
+
+result<-sqldf(query)
+```
+
+
+###Visualizing the data
+```{r}
+ggplot()+
+  geom_point(data=result,aes(x=Career_SO,y=Career_HR),size=3,color="blue")+
+  ggtitle("Career Strikeouts VS Homeruns for Great Hitters")+
+  xlab("Career Strikeouts")+
+  ylab("Career Homeruns")
+```
+

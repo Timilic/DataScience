@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Timi&#39;s RStudio Tutorials</title>
+    <link>/post/</link>
+    <description>Recent content in Posts on Timi&#39;s RStudio Tutorials</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Powered by [Hugo](http://gohugo.io).</copyright>
+    <lastBuildDate>Fri, 15 Dec 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Barplot</title>
+      <link>/post/barplot/</link>
+      <pubDate>Fri, 15 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/barplot/</guid>
+      <description>Bringing in the Librarieslibrary(sqldf)library(Lahman)library(ggplot2)library(devtools)Extracting the dataquery&amp;lt;-&amp;quot;SELECT name,HRFROM TeamsWHERE yearID=1980ORDER BY HR&amp;quot;result&amp;lt;-sqldf(query)Visualizing the dataggplot()+geom_bar(data=result,aes(x=name,y=HR),stat=&amp;#39;identity&amp;#39;,color=&amp;#39;blue&amp;#39;,fill=&amp;#39;white&amp;#39;)+coord_flip()+ylab(&amp;#39;Homeruns&amp;#39;)+xlab(&amp;#39;Team&amp;#39;)+ggtitle(&amp;#39;1980 Team Homerun Distribution&amp;#39;)result$name&amp;lt;-factor(result$name,levels=result$name)</description>
+    </item>
+    
+    <item>
+      <title>Scatterplot</title>
+      <link>/post/scatterplot/</link>
+      <pubDate>Fri, 15 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/scatterplot/</guid>
+      <description>Bringing in the Librarieslibrary(sqldf)library(Lahman)library(ggplot2)library(devtools)Extracting the dataquery&amp;lt;-&amp;quot;SELECT playerID,sum(HR) AS Career_HR,sum(SO) AS Career_SOFROM BattingGROUP BY playerIDHAVING sum(HR)&amp;gt;=400&amp;quot;result&amp;lt;-sqldf(query)Visualizing the dataggplot()+geom_point(data=result,aes(x=Career_SO,y=Career_HR),size=3,color=&amp;quot;blue&amp;quot;)+ggtitle(&amp;quot;Career Strikeouts VS Homeruns for Great Hitters&amp;quot;)+xlab(&amp;quot;Career Strikeouts&amp;quot;)+ylab(&amp;quot;Career Homeruns&amp;quot;)</description>
+    </item>
+    
+    <item>
+      <title>Time Series</title>
+      <link>/post/time-series/</link>
+      <pubDate>Fri, 15 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/time-series/</guid>
+      <description>Bringing in the Librarieslibrary(sqldf)library(Lahman)library(ggplot2)library(devtools)Extracting the dataquery&amp;lt;-&amp;quot;SELECT yearID,HRFROM BattingWHERE playerID=&amp;#39;ruthba01&amp;#39;&amp;quot;result&amp;lt;-sqldf(query)Visualizing the dataggplot()+geom_line(data=result,aes(x=yearID,y=HR))+geom_point(data=result,aes(x=yearID,y=HR))+ggtitle(&amp;quot;Ruth&amp;#39;s Homerun Totals Through Years&amp;quot;)+xlab(&amp;quot;Year&amp;quot;)+ylab(&amp;quot;Homeruns&amp;quot;)</description>
+    </item>
+    
+    <item>
+      <title>Histogram</title>
+      <link>/post/histogram/</link>
+      <pubDate>Mon, 16 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/histogram/</guid>
+      <description>Bringing in the Librarieslibrary(sqldf)library(Lahman)library(ggplot2)library(devtools)Extracting the Dataquery&amp;lt;-&amp;quot;SELECT weightFROM Master&amp;quot;result&amp;lt;-sqldf(query)Viualizing the Dataggplot()+geom_histogram(data=result,aes(x=weight),color=&amp;quot;blue&amp;quot;,fill=&amp;quot;white&amp;quot;,bins=50)+ggtitle(&amp;quot;Body-Weight Distribution for Baseball Players&amp;quot;)</description>
+    </item>
+    
+  </channel>
+</rss>

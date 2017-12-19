@@ -1,0 +1,36 @@
+---
+title: Histogram
+author: Aleksa Timilic
+date: '2017-10-16'
+slug: histogram
+categories:
+  - Rstudio
+tags:
+  - R
+  - Markdown
+  - regression
+---
+```{r message=FALSE, warning=FALSE}
+library(sqldf)
+library(Lahman)
+library(ggplot2)
+library(devtools)
+```
+
+### Extracting the Data
+
+
+```{r}
+query<-"SELECT weight
+FROM Master"
+result<-sqldf(query)
+```
+
+
+### Viualizing the Data
+```{r message=FALSE, warning=FALSE}
+ggplot()+
+  geom_histogram(data=result,aes(x=weight),color="blue",fill="white",bins=50)+
+  ggtitle("Body-Weight Distribution for Baseball Players")
+```
+
