@@ -1,4 +1,4 @@
-baseurl = "https://example.org/"
+baseurl = "https://timi.netlify.com/"
 languageCode = "en-us"
 title = "Timi's RStudio Tutorials"
 # Define how many pages appear per site
